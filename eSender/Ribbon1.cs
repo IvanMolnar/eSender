@@ -101,15 +101,14 @@ namespace eSender
 
                     if (fields.Count() > 6)
                     {
-                        string prefix = fields[2].Trim();
-                        string surname = fields[4].Trim();
+                        string name = fields[3].Trim();
                         string email = fields[6].Replace(" ", "");
 
-                        if ((prefix.Count() > 0) && (surname.Count() > 0) && (email.Count() > 3))
+                        if ((name.Count() > 0) && (email.Count() > 3))
                         {
                             try
                             {
-                                sendEmail(prefix, surname, email, ref outlookApp);
+                                sendEmail(name, email, ref outlookApp);
                             }
                             catch (System.Exception ex)
                             {
@@ -122,7 +121,7 @@ namespace eSender
                         }
                         else
                         {
-                            string errorMessage = "Could not send email: prefix is " + prefix + " name is " + surname + " email is " + email;
+                            string errorMessage = "Could not send email: name is " + name + " email is " + email;
                             writeToLog(errorMessage);
                             errorList.Add(errorMessage);
                         }
@@ -155,12 +154,11 @@ namespace eSender
 
         }
 
-        private void sendEmail(string prefix, string surname, string email, ref OutlookApp outlookApp)
+        private void sendEmail(string name, string email, ref OutlookApp outlookApp)
         {
             MailItem mailItem = outlookApp.CreateItemFromTemplate(emailTemplatePath);
 
-            mailItem.HTMLBody = mailItem.HTMLBody.Replace("%prefix%", prefix);
-            mailItem.HTMLBody = mailItem.HTMLBody.Replace("%surname%", surname);
+            mailItem.HTMLBody = mailItem.HTMLBody.Replace("%name%", name);
             mailItem.To = email;
 
             mailItem.Send();
