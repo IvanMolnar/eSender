@@ -91,7 +91,7 @@ namespace eSender
             using (TextFieldParser parser = new TextFieldParser(csvPath, Encoding.Default, true))
             {
                 parser.TextFieldType = FieldType.Delimited;
-                parser.SetDelimiters("|");
+                parser.SetDelimiters(",");
 
                 OutlookApp outlookApp = new OutlookApp();
 
