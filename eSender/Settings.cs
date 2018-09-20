@@ -100,7 +100,7 @@ namespace eSender
 
                 if (lines.Count() > 3)
                 {
-                    string batchSize = lines.ElementAt(2);
+                    string batchSize = lines.ElementAt(3);
 
                     int result = 0;
                     bool canConvert = int.TryParse(batchSize, out result);
@@ -120,6 +120,8 @@ namespace eSender
             {
                 csvLabel.Text = "";
                 templateLabel.Text = "";
+                numBatchSize.Value = 0;
+                numDelay.Value = 0;
             }
   
         }

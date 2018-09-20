@@ -53,7 +53,7 @@
             // 
             this.MainGroup.Items.Add(this.Settings);
             this.MainGroup.Items.Add(this.Send);
-            this.MainGroup.Label = "eSender Beta3T";
+            this.MainGroup.Label = "eSender Beta4";
             this.MainGroup.Name = "MainGroup";
             // 
             // Settings

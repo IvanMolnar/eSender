@@ -22,6 +22,10 @@ namespace eSender
         private string folderPath;
         private string filePath;
 
+        static public System.Threading.EventWaitHandle emailEventHandle = new System.Threading.AutoResetEvent(false);
+        private int numberOfSentEmail = 0;
+        static private System.Threading.Timer emailTimer = new System.Threading.Timer(emailTimerElapsed);
+
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             folderPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\eSender";
@@ -30,6 +34,12 @@ namespace eSender
             settingsWindow.readSettings();
             emailTemplatePath = settingsWindow.templateLabel.Text;
             csvPath = settingsWindow.csvLabel.Text;
+        }
+
+        static private void emailTimerElapsed(Object stateInfo)
+        {
+            emailEventHandle.Set();
+            emailTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
         }
 
         private void Settings_Click(object sender, RibbonControlEventArgs e)
@@ -134,6 +144,20 @@ namespace eSender
                         errorList.Add(errorMessage);
                     }
 
+                    if (numberOfSentEmail >= decimal.ToInt32(settingsWindow.numBatchSize.Value))
+                    {
+                        if (settingsWindow.numDelay.Value > 0)
+                        {
+                            emailTimer.Change((decimal.ToInt32(settingsWindow.numDelay.Value) * 1000 * 60), System.Threading.Timeout.Infinite);
+                            emailEventHandle.WaitOne();
+                            numberOfSentEmail = 0;
+                            emailTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+                        }
+                        else
+                        {
+                            emailTimer.Change(System.Threading.Timeout.Infinite, System.Threading.Timeout.Infinite);
+                        }
+                    }
                 }
             }
 
@@ -162,6 +186,8 @@ namespace eSender
             mailItem.To = email;
 
             mailItem.Send();
+
+            ++numberOfSentEmail;
         }
 
         private void writeToLog(string data, bool error = false)
@@ -182,8 +208,5 @@ namespace eSender
             }
 
         }
-
-
-
     }
 }

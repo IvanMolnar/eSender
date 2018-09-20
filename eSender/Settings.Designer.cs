@@ -35,13 +35,13 @@
             this.csvLabel = new System.Windows.Forms.Label();
             this.templateLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numBatchSize = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.numDelay = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.numDelay = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numBatchSize = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDelay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).BeginInit();
             this.SuspendLayout();
             // 
             // selectCSV
@@ -56,7 +56,7 @@
             // 
             // selectTemplate
             // 
-            this.selectTemplate.Location = new System.Drawing.Point(12, 134);
+            this.selectTemplate.Location = new System.Drawing.Point(15, 104);
             this.selectTemplate.Name = "selectTemplate";
             this.selectTemplate.Size = new System.Drawing.Size(81, 31);
             this.selectTemplate.TabIndex = 1;
@@ -86,7 +86,7 @@
             // templateLabel
             // 
             this.templateLabel.AutoSize = true;
-            this.templateLabel.Location = new System.Drawing.Point(12, 118);
+            this.templateLabel.Location = new System.Drawing.Point(15, 88);
             this.templateLabel.Name = "templateLabel";
             this.templateLabel.Size = new System.Drawing.Size(35, 13);
             this.templateLabel.TabIndex = 4;
@@ -98,19 +98,28 @@
             this.groupBox1.Controls.Add(this.numDelay);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.numBatchSize);
-            this.groupBox1.Location = new System.Drawing.Point(210, 48);
+            this.groupBox1.Location = new System.Drawing.Point(143, 104);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 123);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Delay Send";
             // 
-            // numBatchSize
+            // label4
             // 
-            this.numBatchSize.Location = new System.Drawing.Point(30, 31);
-            this.numBatchSize.Name = "numBatchSize";
-            this.numBatchSize.Size = new System.Drawing.Size(49, 20);
-            this.numBatchSize.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(85, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Delay";
+            // 
+            // numDelay
+            // 
+            this.numDelay.Location = new System.Drawing.Point(32, 68);
+            this.numDelay.Name = "numDelay";
+            this.numDelay.Size = new System.Drawing.Size(47, 20);
+            this.numDelay.TabIndex = 2;
             // 
             // label2
             // 
@@ -121,21 +130,12 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Batch size";
             // 
-            // numDelay
+            // numBatchSize
             // 
-            this.numDelay.Location = new System.Drawing.Point(32, 68);
-            this.numDelay.Name = "numDelay";
-            this.numDelay.Size = new System.Drawing.Size(47, 20);
-            this.numDelay.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Delay";
+            this.numBatchSize.Location = new System.Drawing.Point(30, 31);
+            this.numBatchSize.Name = "numBatchSize";
+            this.numBatchSize.Size = new System.Drawing.Size(49, 20);
+            this.numBatchSize.TabIndex = 0;
             // 
             // Settings
             // 
@@ -155,8 +155,8 @@
             this.Text = "Settings";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numDelay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,8 +172,8 @@
         public System.Windows.Forms.Label templateLabel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numBatchSize;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numDelay;
+        public System.Windows.Forms.NumericUpDown numBatchSize;
+        public System.Windows.Forms.NumericUpDown numDelay;
     }
 }
