@@ -34,6 +34,14 @@
             this.Ok = new System.Windows.Forms.Button();
             this.csvLabel = new System.Windows.Forms.Label();
             this.templateLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numBatchSize = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.numDelay = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // selectCSV
@@ -84,12 +92,58 @@
             this.templateLabel.TabIndex = 4;
             this.templateLabel.Text = "label1";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.numDelay);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.numBatchSize);
+            this.groupBox1.Location = new System.Drawing.Point(210, 48);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 123);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Delay Send";
+            // 
+            // numBatchSize
+            // 
+            this.numBatchSize.Location = new System.Drawing.Point(30, 31);
+            this.numBatchSize.Name = "numBatchSize";
+            this.numBatchSize.Size = new System.Drawing.Size(49, 20);
+            this.numBatchSize.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(85, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Batch size";
+            // 
+            // numDelay
+            // 
+            this.numDelay.Location = new System.Drawing.Point(32, 68);
+            this.numDelay.Name = "numDelay";
+            this.numDelay.Size = new System.Drawing.Size(47, 20);
+            this.numDelay.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(85, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Delay";
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(473, 292);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.templateLabel);
             this.Controls.Add(this.csvLabel);
             this.Controls.Add(this.Ok);
@@ -99,6 +153,10 @@
             this.Name = "Settings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,5 +170,10 @@
         private System.Windows.Forms.Button Ok;
         public System.Windows.Forms.Label csvLabel;
         public System.Windows.Forms.Label templateLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numBatchSize;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown numDelay;
     }
 }

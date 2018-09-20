@@ -80,6 +80,41 @@ namespace eSender
                 {
                     csvLabel.Text = "";
                 }
+
+                if (lines.Count() > 2)
+                {
+                    string batchSize = lines.ElementAt(2);
+
+                    int result = 0;
+                    bool canConvert = int.TryParse(batchSize, out result);
+
+                    if (canConvert)
+                    {
+                        numBatchSize.Value = result;
+                    }
+                    else
+                    {
+                        numBatchSize.Value = 0;
+                    }
+                }
+
+                if (lines.Count() > 3)
+                {
+                    string batchSize = lines.ElementAt(2);
+
+                    int result = 0;
+                    bool canConvert = int.TryParse(batchSize, out result);
+
+                    if (canConvert)
+                    {
+                        numDelay.Value = result;
+                    }
+                    else
+                    {
+                        numDelay.Value = 0;
+                    }
+                }
+
             }
             else
             {
@@ -96,7 +131,7 @@ namespace eSender
                 Directory.CreateDirectory(_folderPath);
             }
 
-            string settingsString = templateLabel.Text + Environment.NewLine + csvLabel.Text;
+            string settingsString = templateLabel.Text + Environment.NewLine + csvLabel.Text + Environment.NewLine + numBatchSize.Value + Environment.NewLine + numDelay.Value;
 
             File.WriteAllText(_filePath, settingsString);
         }
